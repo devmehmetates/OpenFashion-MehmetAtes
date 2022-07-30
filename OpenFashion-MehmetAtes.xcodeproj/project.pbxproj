@@ -70,14 +70,54 @@
 		C09A2948289433E100AD3AB5 /* OpenFashion-MehmetAtes */ = {
 			isa = PBXGroup;
 			children = (
-				C09A2949289433E100AD3AB5 /* AppDelegate.swift */,
-				C09A294B289433E100AD3AB5 /* SceneDelegate.swift */,
-				C09A294D289433E100AD3AB5 /* ViewController.swift */,
-				C09A2952289433E200AD3AB5 /* Assets.xcassets */,
+				C0D6A3082895B09300F7A25E /* App */,
+				C0D6A30A2895B0A800F7A25E /* Models */,
+				C0D6A30B2895B0AE00F7A25E /* Utils */,
+				C0D6A30C2895B0B400F7A25E /* Components */,
+				C0D6A3092895B0A100F7A25E /* Scenes */,
 				C09A2954289433E200AD3AB5 /* LaunchScreen.storyboard */,
+				C09A2952289433E200AD3AB5 /* Assets.xcassets */,
 				C09A2957289433E200AD3AB5 /* Info.plist */,
 			);
 			path = "OpenFashion-MehmetAtes";
+			sourceTree = "<group>";
+		};
+		C0D6A3082895B09300F7A25E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C09A2949289433E100AD3AB5 /* AppDelegate.swift */,
+				C09A294B289433E100AD3AB5 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C0D6A3092895B0A100F7A25E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C09A294D289433E100AD3AB5 /* ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C0D6A30A2895B0A800F7A25E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C0D6A30B2895B0AE00F7A25E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C0D6A30C2895B0B400F7A25E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E28EBBB1B1DB5E31189D4CD6 /* Frameworks */ = {
