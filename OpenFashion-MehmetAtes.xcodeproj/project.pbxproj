@@ -32,6 +32,7 @@
 		C0D6A30F2895B5D800F7A25E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C0D6A3132895B86A00F7A25E /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		C0D6A3152895B9D700F7A25E /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
+		C0D6A31B2895BFBB00F7A25E /* TenorSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TenorSans-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +77,7 @@
 		C09A2948289433E100AD3AB5 /* OpenFashion-MehmetAtes */ = {
 			isa = PBXGroup;
 			children = (
+				C0D6A31A2895BF9F00F7A25E /* Fonts */,
 				C0D6A3082895B09300F7A25E /* App */,
 				C0D6A30A2895B0A800F7A25E /* Models */,
 				C0D6A30B2895B0AE00F7A25E /* Utils */,
@@ -151,6 +153,14 @@
 				C0D6A3132895B86A00F7A25E /* RequestModel.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		C0D6A31A2895BF9F00F7A25E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C0D6A31B2895BFBB00F7A25E /* TenorSans-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		E28EBBB1B1DB5E31189D4CD6 /* Frameworks */ = {
