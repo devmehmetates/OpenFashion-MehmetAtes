@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		538F5C7669C868C98C28716F /* Pods_OpenFashion_MehmetAtes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5FEB8E4D88CD4102ECEEA5 /* Pods_OpenFashion_MehmetAtes.framework */; };
 		C09A294A289433E100AD3AB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A2949289433E100AD3AB5 /* AppDelegate.swift */; };
 		C09A294C289433E100AD3AB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A294B289433E100AD3AB5 /* SceneDelegate.swift */; };
 		C09A294E289433E100AD3AB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A294D289433E100AD3AB5 /* ViewController.swift */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A36BD981258552C6F5D9A32 /* Pods-OpenFashion-MehmetAtes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFashion-MehmetAtes.debug.xcconfig"; path = "Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes.debug.xcconfig"; sourceTree = "<group>"; };
+		2B5FEB8E4D88CD4102ECEEA5 /* Pods_OpenFashion_MehmetAtes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenFashion_MehmetAtes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B792F158C1D8779BD3AB5D35 /* Pods-OpenFashion-MehmetAtes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFashion-MehmetAtes.release.xcconfig"; path = "Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes.release.xcconfig"; sourceTree = "<group>"; };
 		C09A2946289433E100AD3AB5 /* OpenFashion-MehmetAtes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenFashion-MehmetAtes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09A2949289433E100AD3AB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C09A294B289433E100AD3AB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538F5C7669C868C98C28716F /* Pods_OpenFashion_MehmetAtes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D4D113D5AA965EAA896FF63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A36BD981258552C6F5D9A32 /* Pods-OpenFashion-MehmetAtes.debug.xcconfig */,
+				B792F158C1D8779BD3AB5D35 /* Pods-OpenFashion-MehmetAtes.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C09A293D289433E100AD3AB5 = {
 			isa = PBXGroup;
 			children = (
 				C09A2948289433E100AD3AB5 /* OpenFashion-MehmetAtes */,
 				C09A2947289433E100AD3AB5 /* Products */,
+				0D4D113D5AA965EAA896FF63 /* Pods */,
+				E28EBBB1B1DB5E31189D4CD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = "OpenFashion-MehmetAtes";
 			sourceTree = "<group>";
 		};
+		E28EBBB1B1DB5E31189D4CD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B5FEB8E4D88CD4102ECEEA5 /* Pods_OpenFashion_MehmetAtes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C09A295A289433E200AD3AB5 /* Build configuration list for PBXNativeTarget "OpenFashion-MehmetAtes" */;
 			buildPhases = (
+				45A59C9B18DC1DA1F8B38848 /* [CP] Check Pods Manifest.lock */,
+				C014F27E2895386E00AC88A6 /* Run SwiftLint */,
 				C09A2942289433E100AD3AB5 /* Sources */,
 				C09A2943289433E100AD3AB5 /* Frameworks */,
 				C09A2944289433E100AD3AB5 /* Resources */,
+				E1387B340A1EF23DEEBA3FF7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,6 +155,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45A59C9B18DC1DA1F8B38848 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OpenFashion-MehmetAtes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C014F27E2895386E00AC88A6 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		E1387B340A1EF23DEEBA3FF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C09A2942289433E100AD3AB5 /* Sources */ = {
@@ -270,6 +357,7 @@
 		};
 		C09A295B289433E200AD3AB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A36BD981258552C6F5D9A32 /* Pods-OpenFashion-MehmetAtes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +385,7 @@
 		};
 		C09A295C289433E200AD3AB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B792F158C1D8779BD3AB5D35 /* Pods-OpenFashion-MehmetAtes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
