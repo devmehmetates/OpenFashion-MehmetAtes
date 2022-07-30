@@ -16,6 +16,7 @@
 		C0D6A3102895B5D800F7A25E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6A30F2895B5D800F7A25E /* NetworkService.swift */; };
 		C0D6A3142895B86A00F7A25E /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6A3132895B86A00F7A25E /* RequestModel.swift */; };
 		C0D6A3162895B9D700F7A25E /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6A3152895B9D700F7A25E /* DataDecoder.swift */; };
+		C0D6A31E2895C53B00F7A25E /* IconNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6A31D2895C53B00F7A25E /* IconNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		C0D6A3132895B86A00F7A25E /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		C0D6A3152895B9D700F7A25E /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		C0D6A31B2895BFBB00F7A25E /* TenorSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TenorSans-Regular.ttf"; sourceTree = "<group>"; };
+		C0D6A31D2895C53B00F7A25E /* IconNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		C09A2948289433E100AD3AB5 /* OpenFashion-MehmetAtes */ = {
 			isa = PBXGroup;
 			children = (
+				C0D6A31C2895C51D00F7A25E /* Constants */,
 				C0D6A31A2895BF9F00F7A25E /* Fonts */,
 				C0D6A3082895B09300F7A25E /* App */,
 				C0D6A30A2895B0A800F7A25E /* Models */,
@@ -161,6 +164,14 @@
 				C0D6A31B2895BFBB00F7A25E /* TenorSans-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C0D6A31C2895C51D00F7A25E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C0D6A31D2895C53B00F7A25E /* IconNames.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		E28EBBB1B1DB5E31189D4CD6 /* Frameworks */ = {
@@ -309,6 +320,7 @@
 				C09A294E289433E100AD3AB5 /* ViewController.swift in Sources */,
 				C09A294A289433E100AD3AB5 /* AppDelegate.swift in Sources */,
 				C0D6A3102895B5D800F7A25E /* NetworkService.swift in Sources */,
+				C0D6A31E2895C53B00F7A25E /* IconNames.swift in Sources */,
 				C09A294C289433E100AD3AB5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
