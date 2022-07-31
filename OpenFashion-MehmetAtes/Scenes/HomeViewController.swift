@@ -25,6 +25,7 @@ extension HomeViewController {
     private func configureContent() {
         configureScrollView()
         configureImageSliderView()
+        configureArrivalDivider()
     }
     
     private func configureScrollView() {
@@ -59,6 +60,30 @@ extension HomeViewController {
         imageSliderView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
         imageSliderView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         imageSliderView.heightAnchor.constraint(equalToConstant: 550).isActive = true
-        imageSliderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+    
+    private func configureArrivalDivider() {
+        let arrivalTitle = UILabel()
+        arrivalTitle.translatesAutoresizingMaskIntoConstraints = false
+        arrivalTitle.font = UIFont(name: AppConstants.fontName, size: 20)
+        arrivalTitle.text = AppTexts.newArrivalText
+        arrivalTitle.textAlignment = .center
+        
+        contentView.addSubview(arrivalTitle)
+        
+        arrivalTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        arrivalTitle.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        arrivalTitle.topAnchor.constraint(equalTo: imageSliderView.bottomAnchor, constant: 10).isActive = true
+        
+        let arrivalDivider = UIView()
+        arrivalDivider.drawDividerShape()
+        
+        contentView.addSubview(arrivalDivider)
+        
+        arrivalDivider.translatesAutoresizingMaskIntoConstraints = false
+        arrivalDivider.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        arrivalDivider.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        arrivalDivider.topAnchor.constraint(equalTo: arrivalTitle.bottomAnchor, constant: 10).isActive = true
+        arrivalDivider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 }
