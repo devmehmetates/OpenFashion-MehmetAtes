@@ -27,7 +27,7 @@ extension TabBar {
     
     private func configureViewControllers() {
           viewControllers = [
-            configureTabbarButton(for: SomeViewController(), title: AppTexts.home, image: UIImage(named: IconNames.galleryIcon)!),
+            configureTabbarButton(for: HomeViewController(), title: AppTexts.home, image: UIImage(named: IconNames.galleryIcon)!),
             configureTabbarButton(for: SomeViewController(), title: AppTexts.search, image: UIImage(named: IconNames.searchIcon)!),
             configureTabbarButton(for: SomeViewController(), title: AppTexts.shoppingBag, image: UIImage(named: IconNames.shoppingbagIcon)!),
             configureTabbarButton(for: SomeViewController(), title: AppTexts.orders, image: UIImage(named: IconNames.shippingIcon)!)

@@ -20,6 +20,7 @@
 		C0EF152628967B5D00C38B42 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF152528967B5D00C38B42 /* TabBar.swift */; };
 		C0EF152828967BB500C38B42 /* SomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF152728967BB500C38B42 /* SomeViewController.swift */; };
 		C0EF152A289683C600C38B42 /* AppTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF1529289683C600C38B42 /* AppTexts.swift */; };
+		C0EF152F28968CC600C38B42 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EF152E28968CC600C38B42 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		C0EF152528967B5D00C38B42 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		C0EF152728967BB500C38B42 /* SomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeViewController.swift; sourceTree = "<group>"; };
 		C0EF1529289683C600C38B42 /* AppTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTexts.swift; sourceTree = "<group>"; };
+		C0EF152E28968CC600C38B42 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				C0EF152528967B5D00C38B42 /* TabBar.swift */,
 				C0EF152728967BB500C38B42 /* SomeViewController.swift */,
+				C0EF152E28968CC600C38B42 /* HomeViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				C0D6A3102895B5D800F7A25E /* NetworkService.swift in Sources */,
 				C0D6A31E2895C53B00F7A25E /* IconNames.swift in Sources */,
 				C0D6A3202895C8D800F7A25E /* ColorNames.swift in Sources */,
+				C0EF152F28968CC600C38B42 /* HomeViewController.swift in Sources */,
 				C0EF152828967BB500C38B42 /* SomeViewController.swift in Sources */,
 				C0EF152A289683C600C38B42 /* AppTexts.swift in Sources */,
 				C09A294C289433E100AD3AB5 /* SceneDelegate.swift in Sources */,
