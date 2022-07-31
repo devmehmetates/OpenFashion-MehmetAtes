@@ -9,10 +9,16 @@ import UIKit
 import TYImageSlider
 
 class HomeViewController: UIViewController {
+    
+    // BASE
     private let scrollView: UIScrollView = UIScrollView()
     private let contentView: UIView = UIView()
+    
+    // Content
     private let imageSliderView: ImageSliderView = ImageSliderView()
-
+    private let arrivalTitle = UILabel()
+    private let arrivalDivider = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureContent()
@@ -63,7 +69,6 @@ extension HomeViewController {
     }
     
     private func configureArrivalDivider() {
-        let arrivalTitle = UILabel()
         arrivalTitle.translatesAutoresizingMaskIntoConstraints = false
         arrivalTitle.font = UIFont(name: AppConstants.fontName, size: 20)
         arrivalTitle.text = AppTexts.newArrivalText
@@ -73,17 +78,15 @@ extension HomeViewController {
         
         arrivalTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         arrivalTitle.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        arrivalTitle.topAnchor.constraint(equalTo: imageSliderView.bottomAnchor, constant: 10).isActive = true
-        
-        let arrivalDivider = UIView()
+        arrivalTitle.topAnchor.constraint(equalTo: imageSliderView.bottomAnchor, constant: 50).isActive = true
+    
         arrivalDivider.drawDividerShape()
-        
         contentView.addSubview(arrivalDivider)
         
         arrivalDivider.translatesAutoresizingMaskIntoConstraints = false
         arrivalDivider.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         arrivalDivider.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        arrivalDivider.topAnchor.constraint(equalTo: arrivalTitle.bottomAnchor, constant: 10).isActive = true
+        arrivalDivider.topAnchor.constraint(equalTo: arrivalTitle.bottomAnchor, constant: 5).isActive = true
         arrivalDivider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 }
