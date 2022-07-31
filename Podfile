@@ -10,5 +10,6 @@ pod 'SwiftLint'
 pod 'SwiftEntryKit', '2.0.0'
 pod 'Alamofire'
 pod 'IQKeyboardManagerSwift'
+pod 'TYImageSlider'
 
 end
