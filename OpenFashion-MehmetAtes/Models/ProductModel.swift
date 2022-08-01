@@ -6,5 +6,16 @@
 //
 
 struct Product: Codable {
-    
+    var id: Int?
+    var title: String?
+    var price: Int?
+    var description: String?
+    var category: ProductCategory?
+    var images: [String]?
+}
+
+struct ProductCategory: Codable {
+    var id: Int?
+    var name: String?
+    var image: String?
 }

@@ -10,7 +10,7 @@ import TYImageSlider
 import TinyConstraints
 import Kingfisher
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeViewModel {
     
     // BASE
     private let scrollView: UIScrollView = UIScrollView()
@@ -20,10 +20,18 @@ class HomeViewController: UIViewController {
     private let imageSliderView: ImageSliderView = ImageSliderView()
     private let arrivalTitle = UILabel()
     private let arrivalDivider = UIView()
+    private let collectionView = CustomCollectionView()
+    
+    // Data
+    var productList: [Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureContent()
+        getProducts { [weak self] result in
+            self?.productList = result
+            self?.collectionView.setProductList(result)
+        }
     }
 }
 
@@ -114,7 +122,7 @@ extension HomeViewController {
     }
     
     private func configureCollectionView() {
-        let collectionView = CustomCollectionView()
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(collectionView)
         
@@ -139,13 +147,13 @@ class SubclassedCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCell(colour: UIColor) {
-        configureImage()
-        configureTitle()
-        configurePrizeTitle()
+    func setupCell(model: Product) {
+        configureImage(model.images?.first ?? StaticDatas.examleImage1)
+        configureTitle(model.title ?? "")
+        configurePrizeTitle(model.price ?? 0)
     }
     
-    private func configureImage() {
+    private func configureImage(_ url: String) {
         imageContainer.translatesAutoresizingMaskIntoConstraints = false
         imageContainer.contentMode = .scaleAspectFill
         imageContainer.clipsToBounds = true
@@ -153,11 +161,11 @@ class SubclassedCollectionViewCell: UICollectionViewCell {
         addSubview(imageContainer)
         imageContainer.edgesToSuperview(excluding: .bottom)
         imageContainer.bottom(to: self, offset: -60)
-        imageContainer.kf.setImage(with: URL(string: StaticDatas.examleImage3)!)
+        imageContainer.kf.setImage(with: URL(string: url)!)
     }
     
-    private func configureTitle() {
-        descriptionLabel.text = "21WN reversible angora cardigan"
+    private func configureTitle(_ title: String) {
+        descriptionLabel.text = title
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = UIColor(named: ColorNames.bodyColor)
         descriptionLabel.font = UIFont(name: AppConstants.fontName, size: 12)
@@ -168,8 +176,8 @@ class SubclassedCollectionViewCell: UICollectionViewCell {
         descriptionLabel.widthToSuperview()
     }
     
-    private func configurePrizeTitle() {
-        prizeLabel.text = "$120"
+    private func configurePrizeTitle(_ price: Int) {
+        prizeLabel.text = "$\(price)"
         prizeLabel.textAlignment = .center
         prizeLabel.textColor = UIColor(named: ColorNames.secondarColor)
         prizeLabel.font = UIFont(name: AppConstants.fontName, size: 15)
@@ -182,7 +190,7 @@ class SubclassedCollectionViewCell: UICollectionViewCell {
 }
 
 class CustomCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
-    let data = [UIColor.red, UIColor.green, UIColor.blue, UIColor.green, UIColor.purple, UIColor.orange, UIColor.blue]
+    var productList: [Product] = []
     var collectionView: UICollectionView!
     
     override init(frame: CGRect) {
@@ -196,8 +204,13 @@ class CustomCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDa
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setProductList(_ productList: [Product]) {
+        self.productList = productList
+        self.collectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        data.count
+        productList.count
     }
     
     func commonInit() {
@@ -220,8 +233,8 @@ class CustomCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subclassedcell", for: indexPath) as? SubclassedCollectionViewCell {
-            let data = self.data[indexPath.item]
-            cell.setupCell(colour: data)
+            let data = self.productList[indexPath.item]
+            cell.setupCell(model: data)
             return cell
         }
         fatalError("Unable to dequeue subclassed cell")
