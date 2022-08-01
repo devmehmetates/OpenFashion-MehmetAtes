@@ -7,6 +7,7 @@
 
 import UIKit
 import TYImageSlider
+import TinyConstraints
 
 class HomeViewController: UIViewController {
     
@@ -41,15 +42,9 @@ extension HomeViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        scrollView.edgesToSuperview()
+        contentView.widthToSuperview()
+        contentView.edgesToSuperview()
     }
     
     private func configureExploreCollectionButton() {
@@ -62,10 +57,9 @@ extension HomeViewController {
         exploreCollectionButton.layer.cornerRadius = 15
         contentView.addSubview(exploreCollectionButton)
         
-        exploreCollectionButton.bottomAnchor.constraint(equalTo: imageSliderView.bottomAnchor, constant: -40).isActive = true
-        exploreCollectionButton.centerXAnchor.constraint(equalTo: imageSliderView.centerXAnchor).isActive = true
-        exploreCollectionButton.leadingAnchor.constraint(equalTo: imageSliderView.leadingAnchor, constant: 60).isActive = true
-        exploreCollectionButton.bottomAnchor.constraint(equalTo: imageSliderView.bottomAnchor, constant: 60).isActive = true
+        exploreCollectionButton.topToBottom(of: imageSliderView, offset: -80)
+        exploreCollectionButton.leading(to: imageSliderView, offset: 60)
+        exploreCollectionButton.trailing(to: imageSliderView, offset: -60)
         
         exploreCollectionButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
@@ -88,32 +82,32 @@ extension HomeViewController {
         imageSliderView.translatesAutoresizingMaskIntoConstraints = false
         imageSliderView.isUserInteractionEnabled = true
         contentView.addSubview(imageSliderView)
-
-        imageSliderView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        imageSliderView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        imageSliderView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        imageSliderView.heightAnchor.constraint(equalToConstant: 550).isActive = true
+        
+        imageSliderView.topToSuperview()
+        imageSliderView.widthToSuperview()
+        imageSliderView.centerXToSuperview()
+        imageSliderView.height(550)
     }
     
     private func configureArrivalDivider() {
         arrivalTitle.translatesAutoresizingMaskIntoConstraints = false
+        arrivalDivider.translatesAutoresizingMaskIntoConstraints = false
         arrivalTitle.font = UIFont(name: AppConstants.fontName, size: 20)
         arrivalTitle.text = AppTexts.newArrivalText
         arrivalTitle.textAlignment = .center
         
         contentView.addSubview(arrivalTitle)
         
-        arrivalTitle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        arrivalTitle.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        arrivalTitle.topAnchor.constraint(equalTo: imageSliderView.bottomAnchor, constant: 30).isActive = true
+        arrivalTitle.centerXToSuperview()
+        arrivalTitle.widthToSuperview()
+        arrivalTitle.topToBottom(of: imageSliderView, offset: 30)
     
         arrivalDivider.drawDividerShape()
+        
         contentView.addSubview(arrivalDivider)
         
-        arrivalDivider.translatesAutoresizingMaskIntoConstraints = false
-        arrivalDivider.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        arrivalDivider.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        arrivalDivider.topAnchor.constraint(equalTo: arrivalTitle.bottomAnchor, constant: 5).isActive = true
-        arrivalDivider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        arrivalDivider.centerXToSuperview()
+        arrivalDivider.widthToSuperview()
+        arrivalDivider.topToBottom(of: arrivalTitle, offset: 5)
     }
 }
