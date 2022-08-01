@@ -12,5 +12,6 @@ pod 'Alamofire'
 pod 'IQKeyboardManagerSwift'
 pod 'TYImageSlider'
 pod "TinyConstraints"
+pod 'Kingfisher', '~> 7.0'
 
 end
