@@ -20,18 +20,13 @@ class HomeViewController: UIViewController, HomeViewModel {
     private let imageSliderView: ImageSliderView = ImageSliderView()
     private let arrivalTitle = UILabel()
     private let arrivalDivider = UIView()
-    private let collectionView = CustomCollectionView()
-    
-    // Data
-    var productList: [Product] = []
+    private let collectionView = ProductCollectionView()
+    private let exploreMoreButton = UIButton()
+    private let collectionDivider = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureContent()
-        getProducts { [weak self] result in
-            self?.productList = result
-            self?.collectionView.setProductList(result)
-        }
     }
 }
 
@@ -44,8 +39,11 @@ extension HomeViewController {
         configureExploreCollectionButton()
         configureArrivalDivider()
         configureCollectionView()
+        configureExploreMoreButton()
+        configureCollectionDivider()
     }
     
+    // MARK: ScrollView
     private func configureScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +53,24 @@ extension HomeViewController {
         scrollView.edgesToSuperview()
         contentView.widthToSuperview()
         contentView.edgesToSuperview()
+    }
+    
+    // MARK: ImageSlider
+    private func configureImageSliderView() {
+        let imageSliderPresenter = ImageSliderViewPresenter(
+            imageUrls: [StaticDatas.examleImage1, StaticDatas.examleImage2, StaticDatas.examleImage3,
+                        StaticDatas.examleImage4, StaticDatas.examleImage5, StaticDatas.examleImage6],
+            loopingEnabled: true, view: imageSliderView)
+        imageSliderView.presenter = imageSliderPresenter
+
+        imageSliderView.translatesAutoresizingMaskIntoConstraints = false
+        imageSliderView.isUserInteractionEnabled = true
+        contentView.addSubview(imageSliderView)
+        
+        imageSliderView.topToSuperview()
+        imageSliderView.widthToSuperview()
+        imageSliderView.centerXToSuperview()
+        imageSliderView.height(65.0.responsiveH)
     }
     
     private func configureExploreCollectionButton() {
@@ -82,23 +98,7 @@ extension HomeViewController {
         present(viewac, animated: true)
     }
     
-    private func configureImageSliderView() {
-        let imageSliderPresenter = ImageSliderViewPresenter(
-            imageUrls: [StaticDatas.examleImage1, StaticDatas.examleImage2, StaticDatas.examleImage3,
-                        StaticDatas.examleImage4, StaticDatas.examleImage5, StaticDatas.examleImage6],
-            loopingEnabled: true, view: imageSliderView)
-        imageSliderView.presenter = imageSliderPresenter
-
-        imageSliderView.translatesAutoresizingMaskIntoConstraints = false
-        imageSliderView.isUserInteractionEnabled = true
-        contentView.addSubview(imageSliderView)
-        
-        imageSliderView.topToSuperview()
-        imageSliderView.widthToSuperview()
-        imageSliderView.centerXToSuperview()
-        imageSliderView.height(550)
-    }
-    
+    // MARK: New arrival divider
     private func configureArrivalDivider() {
         arrivalTitle.translatesAutoresizingMaskIntoConstraints = false
         arrivalDivider.translatesAutoresizingMaskIntoConstraints = false
@@ -110,7 +110,7 @@ extension HomeViewController {
         
         arrivalTitle.centerXToSuperview()
         arrivalTitle.widthToSuperview()
-        arrivalTitle.topToBottom(of: imageSliderView, offset: 30)
+        arrivalTitle.topToBottom(of: imageSliderView, offset: SpaceConstants.mediumHPad)
     
         arrivalDivider.drawDividerShape()
         
@@ -120,123 +120,44 @@ extension HomeViewController {
         arrivalDivider.widthToSuperview()
         arrivalDivider.topToBottom(of: arrivalTitle, offset: 5)
     }
-    
+
+    // MARK: CollectionView
     private func configureCollectionView() {
-        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(collectionView)
         
-        collectionView.height(UIScreen.main.bounds.width * 1.4)
-        collectionView.bottomToSuperview(offset: -10)
+        collectionView.height(140.0.responsiveW)
         collectionView.widthToSuperview()
         collectionView.centerXToSuperview()
-        collectionView.topToBottom(of: arrivalDivider, offset: 30)
-    }
-}
-
-class SubclassedCollectionViewCell: UICollectionViewCell {
-    let imageContainer: UIImageView = UIImageView()
-    let descriptionLabel: UILabel = UILabel()
-    let prizeLabel: UILabel = UILabel()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+        collectionView.topToBottom(of: arrivalDivider, offset: SpaceConstants.mediumHPad)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupCell(model: Product) {
-        configureImage(model.images?.first ?? StaticDatas.examleImage1)
-        configureTitle(model.title ?? "")
-        configurePrizeTitle(model.price ?? 0)
-    }
-    
-    private func configureImage(_ url: String) {
-        imageContainer.translatesAutoresizingMaskIntoConstraints = false
-        imageContainer.contentMode = .scaleAspectFill
-        imageContainer.clipsToBounds = true
+    // MARK: - ExploreMoreButton
+    private func configureExploreMoreButton() {
+        exploreMoreButton.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(imageContainer)
-        imageContainer.edgesToSuperview(excluding: .bottom)
-        imageContainer.bottom(to: self, offset: -60)
-        imageContainer.kf.setImage(with: URL(string: url)!)
-    }
-    
-    private func configureTitle(_ title: String) {
-        descriptionLabel.text = title
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.textColor = UIColor(named: ColorNames.bodyColor)
-        descriptionLabel.font = UIFont(name: AppConstants.fontName, size: 12)
-        descriptionLabel.textAlignment = .center
+        exploreMoreButton.setTitle("Explore More", for: .normal)
+        exploreMoreButton.titleLabel?.font = UIFont(name: AppConstants.fontName, size: 16)
+        exploreMoreButton.setTitleColor(UIColor(named: ColorNames.labelColor), for: .normal)
+        exploreMoreButton.setImage(UIImage(named: IconNames.forwardArrowIcon), for: .normal)
+        exploreMoreButton.semanticContentAttribute = .forceRightToLeft
+        contentView.addSubview(exploreMoreButton)
         
-        addSubview(descriptionLabel)
-        descriptionLabel.topToBottom(of: imageContainer, offset: 10)
-        descriptionLabel.widthToSuperview()
+        exploreMoreButton.topToBottom(of: collectionView, offset: SpaceConstants.smallWPad)
+        exploreMoreButton.widthToSuperview()
+        exploreMoreButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
-    private func configurePrizeTitle(_ price: Int) {
-        prizeLabel.text = "$\(price)"
-        prizeLabel.textAlignment = .center
-        prizeLabel.textColor = UIColor(named: ColorNames.secondarColor)
-        prizeLabel.font = UIFont(name: AppConstants.fontName, size: 15)
-        addSubview(prizeLabel)
+    private func configureCollectionDivider() {
+        collectionDivider.translatesAutoresizingMaskIntoConstraints = false
         
-        prizeLabel.topToBottom(of: descriptionLabel)
-        prizeLabel.widthToSuperview()
-        prizeLabel.bottomToSuperview()
-    }
-}
-
-class CustomCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
-    var productList: [Product] = []
-    var collectionView: UICollectionView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        commonInit()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setProductList(_ productList: [Product]) {
-        self.productList = productList
-        self.collectionView.reloadData()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        productList.count
-    }
-    
-    func commonInit() {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 60) / 2, height: UIScreen.main.bounds.width * 0.63)
-        layout.scrollDirection = .horizontal
+        collectionDivider.drawDividerShape()
         
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        self.collectionView.isScrollEnabled = true
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
-        self.collectionView.register(SubclassedCollectionViewCell.self, forCellWithReuseIdentifier: "subclassedcell")
-        self.collectionView.backgroundColor = .white
+        contentView.addSubview(collectionDivider)
         
-        addSubview(collectionView)
-        collectionView.reloadData()
-        collectionView.edgesToSuperview()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subclassedcell", for: indexPath) as? SubclassedCollectionViewCell {
-            let data = self.productList[indexPath.item]
-            cell.setupCell(model: data)
-            return cell
-        }
-        fatalError("Unable to dequeue subclassed cell")
+        collectionDivider.centerXToSuperview()
+        collectionDivider.widthToSuperview()
+        collectionDivider.topToBottom(of: exploreMoreButton, offset: SpaceConstants.smallWPad)
+        collectionDivider.bottomToSuperview(offset: -10)
     }
 }

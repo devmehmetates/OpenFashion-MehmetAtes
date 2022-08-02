@@ -9,8 +9,11 @@ protocol HomeViewModel { }
 
 // MARK: - Network
 extension HomeViewModel {
-    func getProducts(result: @escaping ([Product]) -> Void) {
-        NetworkService<DummyModel>.apiRequest("https://api.escuelajs.co/api/v1/products/?offset=10&limit=20") { response in
+    
+    func getProducts(offset: Int? = 0, limit: Int? = 20, result: @escaping ([Product]) -> Void) {
+        guard let offset = offset else { return }
+        guard let limit = limit else { return }
+        NetworkService<DummyModel>.apiRequest(productsPath(offset, limit: limit)) { response in
             switch response {
             case .success(let data):
                 guard let decodedData: [Product] = data.decode() else { return }
