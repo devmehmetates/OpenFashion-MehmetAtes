@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		538F5C7669C868C98C28716F /* Pods_OpenFashion_MehmetAtes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5FEB8E4D88CD4102ECEEA5 /* Pods_OpenFashion_MehmetAtes.framework */; };
+		C036F24D289950B400174E94 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F24C289950B400174E94 /* NetworkConstants.swift */; };
+		C036F24F2899558C00174E94 /* ViewBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F24E2899558C00174E94 /* ViewBounds.swift */; };
+		C036F2512899561D00174E94 /* SpaceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F2502899561D00174E94 /* SpaceConstants.swift */; };
+		C036F2542899586700174E94 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F2532899586700174E94 /* ProductCell.swift */; };
+		C036F25628995A6100174E94 /* ProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F25528995A6100174E94 /* ProductCollectionView.swift */; };
 		C09A294A289433E100AD3AB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A2949289433E100AD3AB5 /* AppDelegate.swift */; };
 		C09A294C289433E100AD3AB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A294B289433E100AD3AB5 /* SceneDelegate.swift */; };
 		C09A2953289433E200AD3AB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09A2952289433E200AD3AB5 /* Assets.xcassets */; };
@@ -32,6 +37,11 @@
 		0A36BD981258552C6F5D9A32 /* Pods-OpenFashion-MehmetAtes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFashion-MehmetAtes.debug.xcconfig"; path = "Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes.debug.xcconfig"; sourceTree = "<group>"; };
 		2B5FEB8E4D88CD4102ECEEA5 /* Pods_OpenFashion_MehmetAtes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenFashion_MehmetAtes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B792F158C1D8779BD3AB5D35 /* Pods-OpenFashion-MehmetAtes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFashion-MehmetAtes.release.xcconfig"; path = "Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes.release.xcconfig"; sourceTree = "<group>"; };
+		C036F24C289950B400174E94 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		C036F24E2899558C00174E94 /* ViewBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBounds.swift; sourceTree = "<group>"; };
+		C036F2502899561D00174E94 /* SpaceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceConstants.swift; sourceTree = "<group>"; };
+		C036F2532899586700174E94 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		C036F25528995A6100174E94 /* ProductCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionView.swift; sourceTree = "<group>"; };
 		C09A2946289433E100AD3AB5 /* OpenFashion-MehmetAtes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenFashion-MehmetAtes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09A2949289433E100AD3AB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C09A294B289433E100AD3AB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +83,15 @@
 				B792F158C1D8779BD3AB5D35 /* Pods-OpenFashion-MehmetAtes.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C036F2522899583B00174E94 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C036F2532899586700174E94 /* ProductCell.swift */,
+				C036F25528995A6100174E94 /* ProductCollectionView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		C09A293D289433E100AD3AB5 = {
@@ -167,6 +186,7 @@
 			children = (
 				C0D6A3152895B9D700F7A25E /* DataDecoder.swift */,
 				C0EF15332896AB9F00C38B42 /* DividerView.swift */,
+				C036F24E2899558C00174E94 /* ViewBounds.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -194,6 +214,8 @@
 				C0D6A31F2895C8D800F7A25E /* ColorNames.swift */,
 				C0EF1529289683C600C38B42 /* AppTexts.swift */,
 				C0EF153028969A4200C38B42 /* StaticDatas.swift */,
+				C036F24C289950B400174E94 /* NetworkConstants.swift */,
+				C036F2502899561D00174E94 /* SpaceConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -201,6 +223,7 @@
 		C0E963842897FB2200DCB830 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C036F2522899583B00174E94 /* Components */,
 				C0EF152E28968CC600C38B42 /* HomeViewController.swift */,
 				C0E963882897FD0100DCB830 /* HomeViewModel.swift */,
 			);
@@ -350,17 +373,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0D6A3162895B9D700F7A25E /* DataDecoder.swift in Sources */,
+				C036F24F2899558C00174E94 /* ViewBounds.swift in Sources */,
 				C0D6A3142895B86A00F7A25E /* RequestModel.swift in Sources */,
 				C09A294A289433E100AD3AB5 /* AppDelegate.swift in Sources */,
 				C0EF152628967B5D00C38B42 /* TabBar.swift in Sources */,
 				C0D6A3102895B5D800F7A25E /* NetworkService.swift in Sources */,
 				C0E963872897FB7100DCB830 /* ProductModel.swift in Sources */,
 				C0EF153128969A4200C38B42 /* StaticDatas.swift in Sources */,
+				C036F2512899561D00174E94 /* SpaceConstants.swift in Sources */,
 				C0D6A31E2895C53B00F7A25E /* IconNames.swift in Sources */,
+				C036F25628995A6100174E94 /* ProductCollectionView.swift in Sources */,
+				C036F24D289950B400174E94 /* NetworkConstants.swift in Sources */,
 				C0D6A3202895C8D800F7A25E /* ColorNames.swift in Sources */,
 				C0EF152F28968CC600C38B42 /* HomeViewController.swift in Sources */,
 				C0EF152828967BB500C38B42 /* SomeViewController.swift in Sources */,
 				C0EF152A289683C600C38B42 /* AppTexts.swift in Sources */,
+				C036F2542899586700174E94 /* ProductCell.swift in Sources */,
 				C09A294C289433E100AD3AB5 /* SceneDelegate.swift in Sources */,
 				C0E963892897FD0100DCB830 /* HomeViewModel.swift in Sources */,
 				C0EF15342896AB9F00C38B42 /* DividerView.swift in Sources */,
