@@ -23,6 +23,9 @@ class HomeViewController: UIViewController, HomeViewModel {
     private let collectionView = ProductCollectionView()
     private let exploreMoreButton = UIButton()
     private let collectionDivider = UIView()
+    private let collectionTitle = UILabel()
+    private let collectionStack = UIStackView()
+    private let lastDivider = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +44,9 @@ extension HomeViewController {
         configureCollectionView()
         configureExploreMoreButton()
         configureCollectionDivider()
+        configureCollectionTitle()
+        configureCollectionStack()
+        configureLastDivider()
     }
     
     // MARK: ScrollView
@@ -148,6 +154,7 @@ extension HomeViewController {
         exploreMoreButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
+    // MARK: - CollectionDivider
     private func configureCollectionDivider() {
         collectionDivider.translatesAutoresizingMaskIntoConstraints = false
         
@@ -158,6 +165,99 @@ extension HomeViewController {
         collectionDivider.centerXToSuperview()
         collectionDivider.widthToSuperview()
         collectionDivider.topToBottom(of: exploreMoreButton, offset: SpaceConstants.smallWPad)
-        collectionDivider.bottomToSuperview(offset: -10)
+    }
+    
+    // MARK: - CollectionTitle
+    private func configureCollectionTitle() {
+        collectionTitle.translatesAutoresizingMaskIntoConstraints = false
+        collectionTitle.text = "COLLECTION"
+        collectionTitle.font = UIFont(name: AppConstants.fontName, size: 20)
+        
+        contentView.addSubview(collectionTitle)
+        
+        collectionTitle.centerXToSuperview()
+        collectionTitle.topToBottom(of: collectionDivider, offset: SpaceConstants.smallWPad)
+    }
+    
+    // MARK: - Collection Stack
+    private func configureCollectionStack() {
+        collectionStack.translatesAutoresizingMaskIntoConstraints = false
+        let imageStack = UIImageView()
+        imageStack.kf.setImage(with: URL(string: StaticDatas.exampleImage7)!)
+        
+        let imageStack2 = UIImageView()
+        imageStack2.kf.setImage(with: URL(string: StaticDatas.exampleImage8)!)
+        
+        let imageStack3 = UIImageView()
+        imageStack3.kf.setImage(with: URL(string: StaticDatas.exampleImage9)!)
+        
+        contentView.addSubview(collectionStack)
+        
+        collectionStack.distribution = .fillEqually
+        collectionStack.axis = .vertical
+        collectionStack.spacing = 10
+        collectionStack.addArrangedSubview(imageStack)
+        collectionStack.addArrangedSubview(imageStack2)
+        collectionStack.addArrangedSubview(imageStack3)
+        
+        let casualTitle = UILabel()
+        casualTitle.text = "CASUAL"
+        casualTitle.font = UIFont(name: AppConstants.fontName, size: 30)
+        casualTitle.textColor = .white
+        casualTitle.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
+        casualTitle.layer.masksToBounds = true
+        casualTitle.layer.cornerRadius = 15
+        
+        contentView.addSubview(casualTitle)
+        casualTitle.leadingToSuperview(offset: SpaceConstants.mediumWPad)
+        casualTitle.trailingToSuperview(offset: SpaceConstants.mediumWPad)
+        casualTitle.textAlignment = .center
+        casualTitle.centerY(to: imageStack)
+        
+        let naturalTitle = UILabel()
+        naturalTitle.text = "NATURAL"
+        naturalTitle.font = UIFont(name: AppConstants.fontName, size: 30)
+        naturalTitle.textColor = .white
+        naturalTitle.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
+        naturalTitle.layer.masksToBounds = true
+        naturalTitle.layer.cornerRadius = 15
+        
+        contentView.addSubview(naturalTitle)
+        naturalTitle.leadingToSuperview(offset: SpaceConstants.mediumWPad)
+        naturalTitle.trailingToSuperview(offset: SpaceConstants.mediumWPad)
+        naturalTitle.textAlignment = .center
+        naturalTitle.centerY(to: imageStack2)
+        
+        let fitTitle = UILabel()
+        fitTitle.text = "Fit"
+        fitTitle.font = UIFont(name: AppConstants.fontName, size: 30)
+        fitTitle.textColor = .white
+        fitTitle.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
+        fitTitle.layer.masksToBounds = true
+        fitTitle.layer.cornerRadius = 15
+        
+        contentView.addSubview(fitTitle)
+        fitTitle.leadingToSuperview(offset: SpaceConstants.mediumWPad)
+        fitTitle.trailingToSuperview(offset: SpaceConstants.mediumWPad)
+        fitTitle.textAlignment = .center
+        fitTitle.centerY(to: imageStack3)
+        
+        collectionStack.topToBottom(of: collectionTitle, offset: SpaceConstants.smallWPad)
+        collectionStack.widthToSuperview()
+        
+        collectionStack.height(100.0.responsiveH)
+    }
+    
+    // MARK: - Last Divider
+    private func configureLastDivider() {
+        lastDivider.translatesAutoresizingMaskIntoConstraints = false
+        lastDivider.drawDividerShape()
+        
+        contentView.addSubview(lastDivider)
+        
+        lastDivider.centerXToSuperview()
+        lastDivider.widthToSuperview()
+        lastDivider.topToBottom(of: collectionStack, offset: SpaceConstants.smallWPad)
+        lastDivider.bottomToSuperview(offset: -10)
     }
 }
