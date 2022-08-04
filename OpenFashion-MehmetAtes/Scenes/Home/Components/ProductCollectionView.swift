@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ProductCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProductCollectionView: UIView {
+    
+    let cellId = "productCell"
     var offset = 0
     var limit = 10
     var productList: [Product] = []
@@ -26,7 +28,8 @@ class ProductCollectionView: UIView, UICollectionViewDelegate, UICollectionViewD
 }
 
 // MARK: - Configure
-extension ProductCollectionView: HomeViewModel {
+extension ProductCollectionView: HomeViewModel, UICollectionViewDelegate, UICollectionViewDataSource {
+    
     private func commonInit() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(
@@ -42,7 +45,7 @@ extension ProductCollectionView: HomeViewModel {
         self.collectionView.isScrollEnabled = true
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(ProductCell.self, forCellWithReuseIdentifier: "subclassedcell")
+        self.collectionView.register(ProductCell.self, forCellWithReuseIdentifier: cellId)
         self.collectionView.backgroundColor = .white
         
         addSubview(collectionView)
@@ -58,12 +61,13 @@ extension ProductCollectionView: HomeViewModel {
 
 // MARK: - Data
 extension ProductCollectionView {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         productList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subclassedcell", for: indexPath) as? ProductCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ProductCell {
             if indexPath.row == productList.count - 1 {
                 if productList.count < 60 {
                     self.offset += limit
