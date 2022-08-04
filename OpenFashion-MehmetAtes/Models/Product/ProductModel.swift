@@ -13,9 +13,3 @@ struct Product: Codable {
     var category: ProductCategory?
     var images: [String]?
 }
-
-struct ProductCategory: Codable {
-    var id: Int?
-    var name: String?
-    var image: String?
-}
