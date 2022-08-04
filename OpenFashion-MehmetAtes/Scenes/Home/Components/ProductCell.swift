@@ -8,6 +8,7 @@
 import UIKit
 
 class ProductCell: UICollectionViewCell {
+    
     let imageContainer: UIImageView = UIImageView()
     let descriptionLabel: UILabel = UILabel()
     let prizeLabel: UILabel = UILabel()
@@ -19,12 +20,6 @@ class ProductCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupCell(model: Product) {
-        configureImage(model.images?.first ?? StaticDatas.examleImage1)
-        configureTitle(model.title ?? "")
-        configurePrizeTitle(model.price ?? 0)
     }
 }
 
@@ -64,5 +59,15 @@ extension ProductCell {
         prizeLabel.topToBottom(of: descriptionLabel)
         prizeLabel.widthToSuperview()
         prizeLabel.bottomToSuperview()
+    }
+}
+
+// MARK: Binding
+extension ProductCell {
+    
+    func setupCell(model: Product) {
+        configureImage(model.images?.first ?? StaticDatas.examleImage1)
+        configureTitle(model.title ?? "")
+        configurePrizeTitle(model.price ?? 0)
     }
 }
