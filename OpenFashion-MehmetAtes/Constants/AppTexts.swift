@@ -16,7 +16,3 @@ struct AppTexts {
     // Home view
     static let newArrivalText = "NEW ARRIVAL"
 }
-
-struct AppConstants {
-    static let fontName = "TenorSans"
-}
