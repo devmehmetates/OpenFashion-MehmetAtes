@@ -8,6 +8,7 @@
 import UIKit
 
 extension Double {
+    
     var responsiveH: Double { return (UIScreen.main.bounds.size.height * self) / 100 }
     var responsiveW: Double { return (UIScreen.main.bounds.size.width * self) / 100 }
 }
