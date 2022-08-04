@@ -5,8 +5,6 @@
 //  Created by Mehmet Ateş on 2.08.2022.
 //
 
-import Foundation
-
 struct SpaceConstants {
     static let smallHPad: Double = 2.5.responsiveW
     static let smallWPad: Double = 2.5.responsiveH
