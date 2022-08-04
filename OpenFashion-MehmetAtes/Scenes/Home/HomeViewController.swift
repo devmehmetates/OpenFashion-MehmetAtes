@@ -83,7 +83,7 @@ extension HomeViewController {
         let exploreCollectionButton = UIButton()
         exploreCollectionButton.translatesAutoresizingMaskIntoConstraints = false
         
-        exploreCollectionButton.setTitle("Explore Collection", for: .normal)
+        exploreCollectionButton.setTitle(AppTexts.exploreCollectionText, for: .normal)
         exploreCollectionButton.titleLabel?.font = UIFont(name: AppConstants.fontName, size: 20)
         exploreCollectionButton.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
         exploreCollectionButton.layer.cornerRadius = 15
@@ -96,6 +96,7 @@ extension HomeViewController {
         exploreCollectionButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
+    // TODO: Configure this button
     @objc
     func buttonAction() {
         let viewac = UIAlertController(title: "Okay", message: "Deneme", preferredStyle: .alert)
@@ -142,7 +143,7 @@ extension HomeViewController {
     private func configureExploreMoreButton() {
         exploreMoreButton.translatesAutoresizingMaskIntoConstraints = false
         
-        exploreMoreButton.setTitle("Explore More", for: .normal)
+        exploreMoreButton.setTitle(AppTexts.exploremoreText, for: .normal)
         exploreMoreButton.titleLabel?.font = UIFont(name: AppConstants.fontName, size: 16)
         exploreMoreButton.setTitleColor(UIColor(named: ColorNames.labelColor), for: .normal)
         exploreMoreButton.setImage(UIImage(named: IconNames.forwardArrowIcon), for: .normal)
@@ -170,7 +171,7 @@ extension HomeViewController {
     // MARK: - CollectionTitle
     private func configureCollectionTitle() {
         collectionTitle.translatesAutoresizingMaskIntoConstraints = false
-        collectionTitle.text = "COLLECTION"
+        collectionTitle.text = AppTexts.collectionText
         collectionTitle.font = UIFont(name: AppConstants.fontName, size: 20)
         
         contentView.addSubview(collectionTitle)
@@ -182,26 +183,29 @@ extension HomeViewController {
     // MARK: - Collection Stack
     private func configureCollectionStack() {
         collectionStack.translatesAutoresizingMaskIntoConstraints = false
-        let imageStack = UIImageView()
-        imageStack.kf.setImage(with: URL(string: StaticDatas.exampleImage7)!)
-        
-        let imageStack2 = UIImageView()
-        imageStack2.kf.setImage(with: URL(string: StaticDatas.exampleImage8)!)
-        
-        let imageStack3 = UIImageView()
-        imageStack3.kf.setImage(with: URL(string: StaticDatas.exampleImage9)!)
-        
         contentView.addSubview(collectionStack)
         
         collectionStack.distribution = .fillEqually
         collectionStack.axis = .vertical
         collectionStack.spacing = 10
-        collectionStack.addArrangedSubview(imageStack)
-        collectionStack.addArrangedSubview(imageStack2)
-        collectionStack.addArrangedSubview(imageStack3)
+        
+        configureCasualStackImage()
+        configureNaturalStackImage()
+        configureFitStackImage()
+        
+        collectionStack.topToBottom(of: collectionTitle, offset: SpaceConstants.smallWPad)
+        collectionStack.widthToSuperview()
+        
+        collectionStack.height(100.0.responsiveH)
+    }
+    
+    private func configureCasualStackImage() {
+        let casualImage = UIImageView()
+        casualImage.kf.setImage(with: URL(string: StaticDatas.exampleImage7)!)
+        collectionStack.addArrangedSubview(casualImage)
         
         let casualTitle = UILabel()
-        casualTitle.text = "CASUAL"
+        casualTitle.text = AppTexts.casualText
         casualTitle.font = UIFont(name: AppConstants.fontName, size: 30)
         casualTitle.textColor = .white
         casualTitle.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
@@ -212,10 +216,16 @@ extension HomeViewController {
         casualTitle.leadingToSuperview(offset: SpaceConstants.mediumWPad)
         casualTitle.trailingToSuperview(offset: SpaceConstants.mediumWPad)
         casualTitle.textAlignment = .center
-        casualTitle.centerY(to: imageStack)
+        casualTitle.centerY(to: casualImage)
+    }
+    
+    private func configureNaturalStackImage() {
+        let naturalImage = UIImageView()
+        naturalImage.kf.setImage(with: URL(string: StaticDatas.exampleImage8)!)
+        collectionStack.addArrangedSubview(naturalImage)
         
         let naturalTitle = UILabel()
-        naturalTitle.text = "NATURAL"
+        naturalTitle.text = AppTexts.naturalText
         naturalTitle.font = UIFont(name: AppConstants.fontName, size: 30)
         naturalTitle.textColor = .white
         naturalTitle.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
@@ -226,10 +236,16 @@ extension HomeViewController {
         naturalTitle.leadingToSuperview(offset: SpaceConstants.mediumWPad)
         naturalTitle.trailingToSuperview(offset: SpaceConstants.mediumWPad)
         naturalTitle.textAlignment = .center
-        naturalTitle.centerY(to: imageStack2)
+        naturalTitle.centerY(to: naturalImage)
+    }
+    
+    private func configureFitStackImage() {
+        let fitImage = UIImageView()
+        fitImage.kf.setImage(with: URL(string: StaticDatas.exampleImage9)!)
+        collectionStack.addArrangedSubview(fitImage)
         
         let fitTitle = UILabel()
-        fitTitle.text = "Fit"
+        fitTitle.text = AppTexts.fitText
         fitTitle.font = UIFont(name: AppConstants.fontName, size: 30)
         fitTitle.textColor = .white
         fitTitle.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
@@ -240,12 +256,7 @@ extension HomeViewController {
         fitTitle.leadingToSuperview(offset: SpaceConstants.mediumWPad)
         fitTitle.trailingToSuperview(offset: SpaceConstants.mediumWPad)
         fitTitle.textAlignment = .center
-        fitTitle.centerY(to: imageStack3)
-        
-        collectionStack.topToBottom(of: collectionTitle, offset: SpaceConstants.smallWPad)
-        collectionStack.widthToSuperview()
-        
-        collectionStack.height(100.0.responsiveH)
+        fitTitle.centerY(to: fitImage)
     }
     
     // MARK: - Last Divider

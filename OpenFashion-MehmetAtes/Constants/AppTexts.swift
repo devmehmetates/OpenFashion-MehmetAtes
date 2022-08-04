@@ -15,4 +15,11 @@ struct AppTexts {
     
     // Home view
     static let newArrivalText = "NEW ARRIVAL"
+    static let exploreCollectionText = "Explore Collection"
+    static let exploremoreText = "Explore More"
+    static let collectionText = "COLLECTION"
+    
+    static let casualText = "CASUAL"
+    static let naturalText = "NATURAL"
+    static let fitText = "FIT"
 }
