@@ -19,7 +19,6 @@ extension HomeViewModel {
                 guard let decodedData: [Product] = data.decode() else { return }
                 return result(decodedData)
             case .failure(let err):
-                print(err)
                 return result([])
             }
         }
