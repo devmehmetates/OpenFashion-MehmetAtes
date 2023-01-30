@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		538F5C7669C868C98C28716F /* Pods_OpenFashion_MehmetAtes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5FEB8E4D88CD4102ECEEA5 /* Pods_OpenFashion_MehmetAtes.framework */; };
 		C036F24D289950B400174E94 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F24C289950B400174E94 /* NetworkConstants.swift */; };
 		C036F24F2899558C00174E94 /* ViewBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F24E2899558C00174E94 /* ViewBounds.swift */; };
 		C036F2512899561D00174E94 /* SpaceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F2502899561D00174E94 /* SpaceConstants.swift */; };
 		C036F2542899586700174E94 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F2532899586700174E94 /* ProductCell.swift */; };
 		C036F25628995A6100174E94 /* ProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F25528995A6100174E94 /* ProductCollectionView.swift */; };
+		C05A99612988456800CE43AB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99602988456800CE43AB /* Kingfisher */; };
+		C05A99642988457400CE43AB /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99632988457400CE43AB /* TinyConstraints */; };
+		C05A99672988458700CE43AB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99662988458700CE43AB /* IQKeyboardManagerSwift */; };
+		C05A996A298845DA00CE43AB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C05A9969298845DA00CE43AB /* Alamofire */; };
+		C05A996D2988464F00CE43AB /* TYAutoCompleteTextField in Frameworks */ = {isa = PBXBuildFile; productRef = C05A996C2988464F00CE43AB /* TYAutoCompleteTextField */; };
+		C05A996F2988464F00CE43AB /* TYContinuousPagingView in Frameworks */ = {isa = PBXBuildFile; productRef = C05A996E2988464F00CE43AB /* TYContinuousPagingView */; };
+		C05A99712988464F00CE43AB /* TYImageSlider in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99702988464F00CE43AB /* TYImageSlider */; };
+		C05A99732988464F00CE43AB /* TYLinkLabel in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99722988464F00CE43AB /* TYLinkLabel */; };
+		C05A99752988464F00CE43AB /* TYPinchableImageView in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99742988464F00CE43AB /* TYPinchableImageView */; };
+		C05A99772988464F00CE43AB /* TYPropertyWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99762988464F00CE43AB /* TYPropertyWrapper */; };
+		C05A99792988464F00CE43AB /* TYStatusBarView in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99782988464F00CE43AB /* TYStatusBarView */; };
 		C09A294A289433E100AD3AB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A2949289433E100AD3AB5 /* AppDelegate.swift */; };
 		C09A294C289433E100AD3AB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A294B289433E100AD3AB5 /* SceneDelegate.swift */; };
 		C09A2953289433E200AD3AB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09A2952289433E200AD3AB5 /* Assets.xcassets */; };
@@ -38,9 +48,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A36BD981258552C6F5D9A32 /* Pods-OpenFashion-MehmetAtes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFashion-MehmetAtes.debug.xcconfig"; path = "Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes.debug.xcconfig"; sourceTree = "<group>"; };
-		2B5FEB8E4D88CD4102ECEEA5 /* Pods_OpenFashion_MehmetAtes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenFashion_MehmetAtes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B792F158C1D8779BD3AB5D35 /* Pods-OpenFashion-MehmetAtes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenFashion-MehmetAtes.release.xcconfig"; path = "Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes.release.xcconfig"; sourceTree = "<group>"; };
 		C036F24C289950B400174E94 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		C036F24E2899558C00174E94 /* ViewBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBounds.swift; sourceTree = "<group>"; };
 		C036F2502899561D00174E94 /* SpaceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceConstants.swift; sourceTree = "<group>"; };
@@ -77,22 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				538F5C7669C868C98C28716F /* Pods_OpenFashion_MehmetAtes.framework in Frameworks */,
+				C05A99752988464F00CE43AB /* TYPinchableImageView in Frameworks */,
+				C05A99612988456800CE43AB /* Kingfisher in Frameworks */,
+				C05A996A298845DA00CE43AB /* Alamofire in Frameworks */,
+				C05A99712988464F00CE43AB /* TYImageSlider in Frameworks */,
+				C05A996D2988464F00CE43AB /* TYAutoCompleteTextField in Frameworks */,
+				C05A99642988457400CE43AB /* TinyConstraints in Frameworks */,
+				C05A99672988458700CE43AB /* IQKeyboardManagerSwift in Frameworks */,
+				C05A99732988464F00CE43AB /* TYLinkLabel in Frameworks */,
+				C05A99772988464F00CE43AB /* TYPropertyWrapper in Frameworks */,
+				C05A996F2988464F00CE43AB /* TYContinuousPagingView in Frameworks */,
+				C05A99792988464F00CE43AB /* TYStatusBarView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D4D113D5AA965EAA896FF63 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0A36BD981258552C6F5D9A32 /* Pods-OpenFashion-MehmetAtes.debug.xcconfig */,
-				B792F158C1D8779BD3AB5D35 /* Pods-OpenFashion-MehmetAtes.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		C036F2522899583B00174E94 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,8 +115,6 @@
 			children = (
 				C09A2948289433E100AD3AB5 /* OpenFashion-MehmetAtes */,
 				C09A2947289433E100AD3AB5 /* Products */,
-				0D4D113D5AA965EAA896FF63 /* Pods */,
-				E28EBBB1B1DB5E31189D4CD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,14 +264,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		E28EBBB1B1DB5E31189D4CD6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2B5FEB8E4D88CD4102ECEEA5 /* Pods_OpenFashion_MehmetAtes.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,18 +271,29 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C09A295A289433E200AD3AB5 /* Build configuration list for PBXNativeTarget "OpenFashion-MehmetAtes" */;
 			buildPhases = (
-				45A59C9B18DC1DA1F8B38848 /* [CP] Check Pods Manifest.lock */,
-				C014F27E2895386E00AC88A6 /* Run SwiftLint */,
+				C05A995E2988453300CE43AB /* Run Swiftlint */,
 				C09A2942289433E100AD3AB5 /* Sources */,
 				C09A2943289433E100AD3AB5 /* Frameworks */,
 				C09A2944289433E100AD3AB5 /* Resources */,
-				E1387B340A1EF23DEEBA3FF7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "OpenFashion-MehmetAtes";
+			packageProductDependencies = (
+				C05A99602988456800CE43AB /* Kingfisher */,
+				C05A99632988457400CE43AB /* TinyConstraints */,
+				C05A99662988458700CE43AB /* IQKeyboardManagerSwift */,
+				C05A9969298845DA00CE43AB /* Alamofire */,
+				C05A996C2988464F00CE43AB /* TYAutoCompleteTextField */,
+				C05A996E2988464F00CE43AB /* TYContinuousPagingView */,
+				C05A99702988464F00CE43AB /* TYImageSlider */,
+				C05A99722988464F00CE43AB /* TYLinkLabel */,
+				C05A99742988464F00CE43AB /* TYPinchableImageView */,
+				C05A99762988464F00CE43AB /* TYPropertyWrapper */,
+				C05A99782988464F00CE43AB /* TYStatusBarView */,
+			);
 			productName = "OpenFashion-MehmetAtes";
 			productReference = C09A2946289433E100AD3AB5 /* OpenFashion-MehmetAtes.app */;
 			productType = "com.apple.product-type.application";
@@ -313,6 +322,13 @@
 				Base,
 			);
 			mainGroup = C09A293D289433E100AD3AB5;
+			packageReferences = (
+				C05A995F2988456800CE43AB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C05A99622988457400CE43AB /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				C05A99652988458700CE43AB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				C05A9968298845DA00CE43AB /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C05A996B2988464F00CE43AB /* XCRemoteSwiftPackageReference "ios-components" */,
+			);
 			productRefGroup = C09A2947289433E100AD3AB5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,29 +352,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		45A59C9B18DC1DA1F8B38848 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OpenFashion-MehmetAtes-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C014F27E2895386E00AC88A6 /* Run SwiftLint */ = {
+		C05A995E2988453300CE43AB /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -367,31 +361,14 @@
 			);
 			inputPaths = (
 			);
-			name = "Run SwiftLint";
+			name = "Run Swiftlint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		E1387B340A1EF23DEEBA3FF7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OpenFashion-MehmetAtes/Pods-OpenFashion-MehmetAtes-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -557,7 +534,6 @@
 		};
 		C09A295B289433E200AD3AB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A36BD981258552C6F5D9A32 /* Pods-OpenFashion-MehmetAtes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -585,7 +561,6 @@
 		};
 		C09A295C289433E200AD3AB5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B792F158C1D8779BD3AB5D35 /* Pods-OpenFashion-MehmetAtes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -633,6 +608,107 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C05A995F2988456800CE43AB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		C05A99622988457400CE43AB /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		C05A99652988458700CE43AB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C05A9968298845DA00CE43AB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C05A996B2988464F00CE43AB /* XCRemoteSwiftPackageReference "ios-components" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Trendyol/ios-components.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C05A99602988456800CE43AB /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A995F2988456800CE43AB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		C05A99632988457400CE43AB /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A99622988457400CE43AB /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+		C05A99662988458700CE43AB /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A99652988458700CE43AB /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		C05A9969298845DA00CE43AB /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A9968298845DA00CE43AB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		C05A996C2988464F00CE43AB /* TYAutoCompleteTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A996B2988464F00CE43AB /* XCRemoteSwiftPackageReference "ios-components" */;
+			productName = TYAutoCompleteTextField;
+		};
+		C05A996E2988464F00CE43AB /* TYContinuousPagingView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A996B2988464F00CE43AB /* XCRemoteSwiftPackageReference "ios-components" */;
+			productName = TYContinuousPagingView;
+		};
+		C05A99702988464F00CE43AB /* TYImageSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A996B2988464F00CE43AB /* XCRemoteSwiftPackageReference "ios-components" */;
+			productName = TYImageSlider;
+		};
+		C05A99722988464F00CE43AB /* TYLinkLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A996B2988464F00CE43AB /* XCRemoteSwiftPackageReference "ios-components" */;
+			productName = TYLinkLabel;
+		};
+		C05A99742988464F00CE43AB /* TYPinchableImageView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A996B2988464F00CE43AB /* XCRemoteSwiftPackageReference "ios-components" */;
+			productName = TYPinchableImageView;
+		};
+		C05A99762988464F00CE43AB /* TYPropertyWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A996B2988464F00CE43AB /* XCRemoteSwiftPackageReference "ios-components" */;
+			productName = TYPropertyWrapper;
+		};
+		C05A99782988464F00CE43AB /* TYStatusBarView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C05A996B2988464F00CE43AB /* XCRemoteSwiftPackageReference "ios-components" */;
+			productName = TYStatusBarView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C09A293E289433E100AD3AB5 /* Project object */;
 }
