@@ -6,6 +6,7 @@
 //
 
 import Alamofire
+import Foundation
 
 class NetworkService<T: RequestModel> {
     
