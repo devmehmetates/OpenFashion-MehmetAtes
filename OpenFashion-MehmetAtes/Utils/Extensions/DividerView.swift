@@ -18,7 +18,7 @@ extension UIView {
         shapeLayer.frame = self.bounds
         shapeLayer.lineWidth = 0.5
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = UIColor(named: ColorNames.labelColor)?.cgColor
+        shapeLayer.strokeColor = UIColor(named: ColorNames.accentColor)?.cgColor
 
         self.layer.addSublayer(shapeLayer)
 

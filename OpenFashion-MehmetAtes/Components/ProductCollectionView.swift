@@ -7,13 +7,12 @@
 
 import UIKit
 
-class ProductCollectionView: UIView {
-    
-    let cellId = "productCell"
-    var offset = 0
-    var limit = 10
-    var productList: [Product] = []
-    var collectionView: UICollectionView!
+final class ProductCollectionView: UIView {
+    private let cellId = "productCell"
+    private var offset = 0
+    private var limit = 10
+    private var productList: [Product] = []
+    private var collectionView: UICollectionView!
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -29,7 +28,6 @@ class ProductCollectionView: UIView {
 
 // MARK: - Configure
 extension ProductCollectionView: HomeViewModel, UICollectionViewDelegate, UICollectionViewDataSource {
-    
     private func commonInit() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(
@@ -46,7 +44,6 @@ extension ProductCollectionView: HomeViewModel, UICollectionViewDelegate, UIColl
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(ProductCell.self, forCellWithReuseIdentifier: cellId)
-        self.collectionView.backgroundColor = .white
         
         addSubview(collectionView)
         collectionView.reloadData()
@@ -61,7 +58,6 @@ extension ProductCollectionView: HomeViewModel, UICollectionViewDelegate, UIColl
 
 // MARK: - Data
 extension ProductCollectionView {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         productList.count
     }

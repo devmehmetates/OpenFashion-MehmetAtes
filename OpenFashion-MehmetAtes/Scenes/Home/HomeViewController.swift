@@ -2,24 +2,23 @@
 //  HomeViewController.swift
 //  OpenFashion-MehmetAtes
 //
-//  Created by Mehmet Ateş on 31.07.2022.
+//  Created by Mehmet Ateş on 30.01.2023.
 //
 
 import UIKit
 import TYImageSlider
-import TinyConstraints
-import Kingfisher
 
-class HomeViewController: UIViewController, HomeViewModel {
-    
-    // BASE
-    private let scrollView: UIScrollView = UIScrollView()
-    private let contentView: UIView = UIView()
+protocol HomeViewProtocol: AnyObject {
+    func setupScrollView()
+}
+
+final class HomeViewController: UIViewController {
+    var presenter: HomePresenter!
+    var scrollView: UIScrollView = UIScrollView()
+    var contentStack: UIStackView = UIStackView()
     
     // Content
     private let imageSliderView: ImageSliderView = ImageSliderView()
-    private let arrivalTitle = UILabel()
-    private let arrivalDivider = UIView()
     private let collectionView = ProductCollectionView()
     private let exploreMoreButton = UIButton()
     private let collectionDivider = UIView()
@@ -29,40 +28,36 @@ class HomeViewController: UIViewController, HomeViewModel {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureContent()
+        presenter.notifyViewLoaded()
     }
 }
 
-// MARK: - Configure
-extension HomeViewController {
-    
-    private func configureContent() {
-        configureScrollView()
+// MARK: - HomeViewProtocol Stumbs
+extension HomeViewController: HomeViewProtocol {
+    func setupScrollView() {
+        addScrollViewToSuperView()
         configureImageSliderView()
-        configureExploreCollectionButton()
         configureArrivalDivider()
         configureCollectionView()
-        configureExploreMoreButton()
-        configureCollectionDivider()
-        configureCollectionTitle()
-        configureCollectionStack()
-        configureLastDivider()
     }
     
-    // MARK: ScrollView
-    private func configureScrollView() {
+    func addScrollViewToSuperView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentStack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        scrollView.addSubview(contentStack)
         
         scrollView.edgesToSuperview()
-        contentView.widthToSuperview()
-        contentView.edgesToSuperview()
+        contentStack.widthToSuperview()
+        contentStack.edgesToSuperview()
+        contentStack.axis = .vertical
     }
-    
-    // MARK: ImageSlider
+}
+
+// MARK: - ImageSlider
+extension HomeViewController {
     private func configureImageSliderView() {
+        let sliderView = UIView()
         let imageSliderPresenter = ImageSliderViewPresenter(
             imageUrls: [StaticDatas.examleImage1, StaticDatas.examleImage2, StaticDatas.examleImage3,
                         StaticDatas.examleImage4, StaticDatas.examleImage5, StaticDatas.examleImage6],
@@ -71,204 +66,54 @@ extension HomeViewController {
 
         imageSliderView.translatesAutoresizingMaskIntoConstraints = false
         imageSliderView.isUserInteractionEnabled = true
-        contentView.addSubview(imageSliderView)
-        
-        imageSliderView.topToSuperview()
-        imageSliderView.widthToSuperview()
-        imageSliderView.centerXToSuperview()
+        imageSliderView.clipsToBounds = true
+        imageSliderView.layer.cornerRadius = 10
         imageSliderView.height(65.0.responsiveH)
+        sliderView.addSubview(imageSliderView)
+        imageSliderView.leadingToSuperview(offset: SpaceConstants.smallWPad)
+        imageSliderView.trailingToSuperview(offset: SpaceConstants.smallWPad)
+        imageSliderView.verticalToSuperview()
+        contentStack.addArrangedSubview(sliderView)
     }
-    
-    private func configureExploreCollectionButton() {
-        let exploreCollectionButton = UIButton()
-        exploreCollectionButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        exploreCollectionButton.setTitle(AppTexts.exploreCollectionText, for: .normal)
-        exploreCollectionButton.titleLabel?.font = UIFont(name: AppConstants.fontName, size: 20)
-        exploreCollectionButton.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
-        exploreCollectionButton.layer.cornerRadius = 15
-        contentView.addSubview(exploreCollectionButton)
-        
-        exploreCollectionButton.topToBottom(of: imageSliderView, offset: -80)
-        exploreCollectionButton.leading(to: imageSliderView, offset: 60)
-        exploreCollectionButton.trailing(to: imageSliderView, offset: -60)
-        
-        exploreCollectionButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-    }
-    
-    // TODO: Configure this button
-    @objc
-    func buttonAction() {
-        let viewac = UIAlertController(title: "Okay", message: "Deneme", preferredStyle: .alert)
-        viewac.addAction(UIAlertAction(title: "OK", style: .destructive))
-        
-        present(viewac, animated: true)
-    }
-    
-    // MARK: New arrival divider
-    private func configureArrivalDivider() {
-        arrivalTitle.translatesAutoresizingMaskIntoConstraints = false
-        arrivalDivider.translatesAutoresizingMaskIntoConstraints = false
-        arrivalTitle.font = UIFont(name: AppConstants.fontName, size: 20)
-        arrivalTitle.text = AppTexts.newArrivalText
-        arrivalTitle.textAlignment = .center
-        
-        contentView.addSubview(arrivalTitle)
-        
-        arrivalTitle.centerXToSuperview()
-        arrivalTitle.widthToSuperview()
-        arrivalTitle.topToBottom(of: imageSliderView, offset: SpaceConstants.mediumHPad)
-    
-        arrivalDivider.drawDividerShape()
-        
-        contentView.addSubview(arrivalDivider)
-        
-        arrivalDivider.centerXToSuperview()
-        arrivalDivider.widthToSuperview()
-        arrivalDivider.topToBottom(of: arrivalTitle, offset: 5)
-    }
+}
 
-    // MARK: CollectionView
+// MARK: New arrival divider
+extension HomeViewController {
+    private func configureArrivalDivider() {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: AppConstants.fontName, size: 20)
+        label.text = AppTexts.newArrivalText
+        label.textAlignment = .center
+        
+        view.addSubview(label)
+        label.centerXToSuperview()
+        label.widthToSuperview()
+        label.topToSuperview(offset: SpaceConstants.smallWPad)
+        
+        let divider = UIView()
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.drawDividerShape()
+        view.addSubview(divider)
+        
+        divider.centerXToSuperview()
+        divider.widthToSuperview()
+        divider.topToBottom(of: label, offset: 5)
+        divider.height(10)
+        divider.bottomToSuperview()
+        
+        contentStack.addArrangedSubview(view)
+    }
+}
+
+// MARK: CollectionView
+extension HomeViewController {
     private func configureCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(collectionView)
-        
+        contentStack.addArrangedSubview(collectionView)
         collectionView.height(140.0.responsiveW)
-        collectionView.widthToSuperview()
-        collectionView.centerXToSuperview()
-        collectionView.topToBottom(of: arrivalDivider, offset: SpaceConstants.mediumHPad)
-    }
-    
-    // MARK: - ExploreMoreButton
-    private func configureExploreMoreButton() {
-        exploreMoreButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        exploreMoreButton.setTitle(AppTexts.exploremoreText, for: .normal)
-        exploreMoreButton.titleLabel?.font = UIFont(name: AppConstants.fontName, size: 16)
-        exploreMoreButton.setTitleColor(UIColor(named: ColorNames.labelColor), for: .normal)
-        exploreMoreButton.setImage(UIImage(named: IconNames.forwardArrowIcon), for: .normal)
-        exploreMoreButton.semanticContentAttribute = .forceRightToLeft
-        contentView.addSubview(exploreMoreButton)
-        
-        exploreMoreButton.topToBottom(of: collectionView, offset: SpaceConstants.smallWPad)
-        exploreMoreButton.widthToSuperview()
-        exploreMoreButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-    }
-    
-    // MARK: - CollectionDivider
-    private func configureCollectionDivider() {
-        collectionDivider.translatesAutoresizingMaskIntoConstraints = false
-        
-        collectionDivider.drawDividerShape()
-        
-        contentView.addSubview(collectionDivider)
-        
-        collectionDivider.centerXToSuperview()
-        collectionDivider.widthToSuperview()
-        collectionDivider.topToBottom(of: exploreMoreButton, offset: SpaceConstants.smallWPad)
-    }
-    
-    // MARK: - CollectionTitle
-    private func configureCollectionTitle() {
-        collectionTitle.translatesAutoresizingMaskIntoConstraints = false
-        collectionTitle.text = AppTexts.collectionText
-        collectionTitle.font = UIFont(name: AppConstants.fontName, size: 20)
-        
-        contentView.addSubview(collectionTitle)
-        
-        collectionTitle.centerXToSuperview()
-        collectionTitle.topToBottom(of: collectionDivider, offset: SpaceConstants.smallWPad)
-    }
-    
-    // MARK: - Collection Stack
-    private func configureCollectionStack() {
-        collectionStack.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(collectionStack)
-        
-        collectionStack.distribution = .fillEqually
-        collectionStack.axis = .vertical
-        collectionStack.spacing = 10
-        
-        configureCasualStackImage()
-        configureNaturalStackImage()
-        configureFitStackImage()
-        
-        collectionStack.topToBottom(of: collectionTitle, offset: SpaceConstants.smallWPad)
-        collectionStack.widthToSuperview()
-        
-        collectionStack.height(100.0.responsiveH)
-    }
-    
-    private func configureCasualStackImage() {
-        let casualImage = UIImageView()
-        casualImage.kf.setImage(with: URL(string: StaticDatas.exampleImage7)!)
-        collectionStack.addArrangedSubview(casualImage)
-        
-        let casualTitle = UILabel()
-        casualTitle.text = AppTexts.casualText
-        casualTitle.font = UIFont(name: AppConstants.fontName, size: 30)
-        casualTitle.textColor = .white
-        casualTitle.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
-        casualTitle.layer.masksToBounds = true
-        casualTitle.layer.cornerRadius = 15
-        
-        contentView.addSubview(casualTitle)
-        casualTitle.leadingToSuperview(offset: SpaceConstants.mediumWPad)
-        casualTitle.trailingToSuperview(offset: SpaceConstants.mediumWPad)
-        casualTitle.textAlignment = .center
-        casualTitle.centerY(to: casualImage)
-    }
-    
-    private func configureNaturalStackImage() {
-        let naturalImage = UIImageView()
-        naturalImage.kf.setImage(with: URL(string: StaticDatas.exampleImage8)!)
-        collectionStack.addArrangedSubview(naturalImage)
-        
-        let naturalTitle = UILabel()
-        naturalTitle.text = AppTexts.naturalText
-        naturalTitle.font = UIFont(name: AppConstants.fontName, size: 30)
-        naturalTitle.textColor = .white
-        naturalTitle.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
-        naturalTitle.layer.masksToBounds = true
-        naturalTitle.layer.cornerRadius = 15
-        
-        contentView.addSubview(naturalTitle)
-        naturalTitle.leadingToSuperview(offset: SpaceConstants.mediumWPad)
-        naturalTitle.trailingToSuperview(offset: SpaceConstants.mediumWPad)
-        naturalTitle.textAlignment = .center
-        naturalTitle.centerY(to: naturalImage)
-    }
-    
-    private func configureFitStackImage() {
-        let fitImage = UIImageView()
-        fitImage.kf.setImage(with: URL(string: StaticDatas.exampleImage9)!)
-        collectionStack.addArrangedSubview(fitImage)
-        
-        let fitTitle = UILabel()
-        fitTitle.text = AppTexts.fitText
-        fitTitle.font = UIFont(name: AppConstants.fontName, size: 30)
-        fitTitle.textColor = .white
-        fitTitle.backgroundColor = UIColor(named: ColorNames.labelColor)?.withAlphaComponent(0.85)
-        fitTitle.layer.masksToBounds = true
-        fitTitle.layer.cornerRadius = 15
-        
-        contentView.addSubview(fitTitle)
-        fitTitle.leadingToSuperview(offset: SpaceConstants.mediumWPad)
-        fitTitle.trailingToSuperview(offset: SpaceConstants.mediumWPad)
-        fitTitle.textAlignment = .center
-        fitTitle.centerY(to: fitImage)
-    }
-    
-    // MARK: - Last Divider
-    private func configureLastDivider() {
-        lastDivider.translatesAutoresizingMaskIntoConstraints = false
-        lastDivider.drawDividerShape()
-        
-        contentView.addSubview(lastDivider)
-        
-        lastDivider.centerXToSuperview()
-        lastDivider.widthToSuperview()
-        lastDivider.topToBottom(of: collectionStack, offset: SpaceConstants.smallWPad)
-        lastDivider.bottomToSuperview(offset: -10)
+        collectionView.width(100.0.responsiveW)
     }
 }

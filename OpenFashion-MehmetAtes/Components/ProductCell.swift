@@ -7,8 +7,7 @@
 
 import UIKit
 
-class ProductCell: UICollectionViewCell {
-    
+final class ProductCell: UICollectionViewCell {
     let imageContainer: UIImageView = UIImageView()
     let descriptionLabel: UILabel = UILabel()
     let prizeLabel: UILabel = UILabel()
@@ -25,16 +24,23 @@ class ProductCell: UICollectionViewCell {
 
 // MARK: - Configure
 extension ProductCell {
-    
     private func configureImage(_ url: String) {
         imageContainer.translatesAutoresizingMaskIntoConstraints = false
         imageContainer.contentMode = .scaleAspectFill
         imageContainer.clipsToBounds = true
+        imageContainer.layer.cornerRadius = 10
+        imageContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        imageContainer.tintColor = .gray
         
         addSubview(imageContainer)
         imageContainer.edgesToSuperview(excluding: .bottom)
         imageContainer.bottom(to: self, offset: -60)
-        imageContainer.kf.setImage(with: URL(string: url)!)
+        imageContainer.kf.setImage(with: URL(string: url)!, options: [
+            .loadDiskFileSynchronously,
+            .cacheMemoryOnly,
+            .alsoPrefetchToMemory,
+            .transition(.fade(0.25))
+        ])
     }
     
     private func configureTitle(_ title: String) {
@@ -64,7 +70,6 @@ extension ProductCell {
 
 // MARK: Binding
 extension ProductCell {
-    
     func setupCell(model: Product) {
         configureImage(model.images?.first ?? StaticDatas.examleImage1)
         configureTitle(model.title ?? "")
