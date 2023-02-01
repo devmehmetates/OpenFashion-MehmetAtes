@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C013BF94298AF4840020052C /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013BF93298AF4840020052C /* ProductCollectionViewCell.swift */; };
 		C036F24D289950B400174E94 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F24C289950B400174E94 /* NetworkConstants.swift */; };
 		C036F24F2899558C00174E94 /* ViewBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F24E2899558C00174E94 /* ViewBounds.swift */; };
 		C036F2512899561D00174E94 /* SpaceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F2502899561D00174E94 /* SpaceConstants.swift */; };
-		C036F2542899586700174E94 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F2532899586700174E94 /* ProductCell.swift */; };
 		C036F25628995A6100174E94 /* ProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036F25528995A6100174E94 /* ProductCollectionView.swift */; };
 		C05A99612988456800CE43AB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99602988456800CE43AB /* Kingfisher */; };
 		C05A99642988457400CE43AB /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = C05A99632988457400CE43AB /* TinyConstraints */; };
@@ -51,10 +51,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C013BF93298AF4840020052C /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		C036F24C289950B400174E94 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		C036F24E2899558C00174E94 /* ViewBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBounds.swift; sourceTree = "<group>"; };
 		C036F2502899561D00174E94 /* SpaceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceConstants.swift; sourceTree = "<group>"; };
-		C036F2532899586700174E94 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		C036F25528995A6100174E94 /* ProductCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionView.swift; sourceTree = "<group>"; };
 		C05A997C29884B2E00CE43AB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		C05A997E29884B3D00CE43AB /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 		C0D6A30C2895B0B400F7A25E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C036F2532899586700174E94 /* ProductCell.swift */,
 				C036F25528995A6100174E94 /* ProductCollectionView.swift */,
+				C013BF93298AF4840020052C /* ProductCollectionViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -404,6 +404,7 @@
 			files = (
 				C0D6A3162895B9D700F7A25E /* DataDecoder.swift in Sources */,
 				C036F24F2899558C00174E94 /* ViewBounds.swift in Sources */,
+				C013BF94298AF4840020052C /* ProductCollectionViewCell.swift in Sources */,
 				C0D6A3142895B86A00F7A25E /* RequestModel.swift in Sources */,
 				C0B0D6C3289BC86C006F20DC /* AppContants.swift in Sources */,
 				C09A294A289433E100AD3AB5 /* AppDelegate.swift in Sources */,
@@ -423,7 +424,6 @@
 				C05A998529884B6000CE43AB /* HomeViewController.swift in Sources */,
 				C0EF152A289683C600C38B42 /* AppTexts.swift in Sources */,
 				C0B0D6CE289C09B9006F20DC /* SearchViewModel.swift in Sources */,
-				C036F2542899586700174E94 /* ProductCell.swift in Sources */,
 				C09A294C289433E100AD3AB5 /* SceneDelegate.swift in Sources */,
 				C0B0D6C5289BC9F2006F20DC /* ProductCategory.swift in Sources */,
 				C05A998129884B4700CE43AB /* HomePresenter.swift in Sources */,

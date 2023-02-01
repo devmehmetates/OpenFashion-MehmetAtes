@@ -43,7 +43,7 @@ extension ProductCollectionView: HomeViewModel, UICollectionViewDelegate, UIColl
         self.collectionView.isScrollEnabled = true
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(ProductCell.self, forCellWithReuseIdentifier: cellId)
+        self.collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         addSubview(collectionView)
         collectionView.reloadData()
@@ -63,7 +63,7 @@ extension ProductCollectionView {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ProductCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ProductCollectionViewCell {
             if indexPath.row == productList.count - 1 {
                 if productList.count < 60 {
                     self.offset += limit
@@ -76,7 +76,7 @@ extension ProductCollectionView {
             }
             
             let data = self.productList[indexPath.item]
-            cell.setupCell(model: data)
+            cell.setupCell(with: data)
             return cell
         }
         fatalError("Unable to dequeue subclassed cell")
