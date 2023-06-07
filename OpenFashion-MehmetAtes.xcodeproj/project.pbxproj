@@ -27,6 +27,8 @@
 		C05A997F29884B3D00CE43AB /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A997E29884B3D00CE43AB /* HomeInteractor.swift */; };
 		C05A998129884B4700CE43AB /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A998029884B4700CE43AB /* HomePresenter.swift */; };
 		C05A998529884B6000CE43AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A998429884B6000CE43AB /* HomeViewController.swift */; };
+		C083D838298C240300EFC678 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083D837298C240300EFC678 /* NetworkManager.swift */; };
+		C083D83B298C304800EFC678 /* HomeViewApiEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083D83A298C304800EFC678 /* HomeViewApiEnum.swift */; };
 		C09A294A289433E100AD3AB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A2949289433E100AD3AB5 /* AppDelegate.swift */; };
 		C09A294C289433E100AD3AB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A294B289433E100AD3AB5 /* SceneDelegate.swift */; };
 		C09A2953289433E200AD3AB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09A2952289433E200AD3AB5 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		C05A997E29884B3D00CE43AB /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		C05A998029884B4700CE43AB /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		C05A998429884B6000CE43AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C083D837298C240300EFC678 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C083D83A298C304800EFC678 /* HomeViewApiEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewApiEnum.swift; sourceTree = "<group>"; };
 		C09A2946289433E100AD3AB5 /* OpenFashion-MehmetAtes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenFashion-MehmetAtes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09A2949289433E100AD3AB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C09A294B289433E100AD3AB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,10 +121,10 @@
 		C05A997B29884B1C00CE43AB /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C05A997C29884B2E00CE43AB /* HomeRouter.swift */,
-				C05A997E29884B3D00CE43AB /* HomeInteractor.swift */,
+				C083D83C298C304B00EFC678 /* Data */,
 				C05A998029884B4700CE43AB /* HomePresenter.swift */,
 				C05A998429884B6000CE43AB /* HomeViewController.swift */,
+				C05A997C29884B2E00CE43AB /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -132,6 +136,15 @@
 				C0B0D6C7289BEEE5006F20DC /* Search */,
 			);
 			path = Legacy;
+			sourceTree = "<group>";
+		};
+		C083D83C298C304B00EFC678 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C083D83A298C304800EFC678 /* HomeViewApiEnum.swift */,
+				C05A997E29884B3D00CE43AB /* HomeInteractor.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		C09A293D289433E100AD3AB5 = {
@@ -235,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				C0D6A30F2895B5D800F7A25E /* NetworkService.swift */,
+				C083D837298C240300EFC678 /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -426,9 +440,11 @@
 				C0B0D6CE289C09B9006F20DC /* SearchViewModel.swift in Sources */,
 				C09A294C289433E100AD3AB5 /* SceneDelegate.swift in Sources */,
 				C0B0D6C5289BC9F2006F20DC /* ProductCategory.swift in Sources */,
+				C083D838298C240300EFC678 /* NetworkManager.swift in Sources */,
 				C05A998129884B4700CE43AB /* HomePresenter.swift in Sources */,
 				C0E963892897FD0100DCB830 /* HomeViewModel.swift in Sources */,
 				C0EF15342896AB9F00C38B42 /* DividerView.swift in Sources */,
+				C083D83B298C304800EFC678 /* HomeViewApiEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

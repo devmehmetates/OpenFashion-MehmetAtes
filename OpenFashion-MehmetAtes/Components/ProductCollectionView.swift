@@ -13,12 +13,12 @@ final class ProductCollectionView: UIView {
     private var limit = 10
     private var productList: [Product] = []
     private var collectionView: UICollectionView!
-    
+
     override init(frame: CGRect) {
         super.init(frame: .zero)
         commonInit()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
@@ -38,17 +38,17 @@ extension ProductCollectionView: HomeViewModel, UICollectionViewDelegate, UIColl
         )
         layout.itemSize = CGSize(width: (100.0.responsiveW - 60) / 2, height: 63.0.responsiveW)
         layout.scrollDirection = .horizontal
-        
+
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         self.collectionView.isScrollEnabled = true
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        
+
         addSubview(collectionView)
         collectionView.reloadData()
         collectionView.edgesToSuperview()
-        
+
         getProducts { [weak self] result in
             self?.productList = result
             self?.collectionView.reloadData()
@@ -61,7 +61,7 @@ extension ProductCollectionView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         productList.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ProductCollectionViewCell {
             if indexPath.row == productList.count - 1 {
@@ -74,7 +74,7 @@ extension ProductCollectionView {
                     }
                 }
             }
-            
+
             let data = self.productList[indexPath.item]
             cell.setupCell(with: data)
             return cell
